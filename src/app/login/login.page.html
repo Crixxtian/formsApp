@@ -6,7 +6,7 @@
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end" >
-      <ion-button color="danger">
+      <ion-button color="danger"  class="b" routerLink="/registro">
         Registrar
       </ion-button>
     </ion-buttons>
@@ -18,9 +18,17 @@
     <h1>Login</h1>
     <img src="../../assets/icone.jpg" alt="logo da imagem">
   </div>
-  <form id="#form">
-    <app-input></app-input>
-    <app-input></app-input>
+  <form id="form">
+    <div class="c">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Senha</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+  </div>
     <ion-button expand="block" shape="round">Login</ion-button>
   </form>
 
