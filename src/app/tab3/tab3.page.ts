@@ -1,3 +1,5 @@
+import { StorageService } from './../services/storage.service';
+import { Produto } from './../models/Produto';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,7 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  listarProdutos: Produto[] =[];
+  constructor(private storageService: StorageService) {}
 
-  constructor() {}
+  async buscarProdutos(){
+    this.listarProdutos = await this.storageService.getAll();
+  }
+  ionViewDidEnter(){
+    this.buscarProdutos();
+  }
+
+  async excluirCadastroProduto(nome: string){
+    await this.storageService.remove(nome);
+    this.buscarProdutos();
+  }
 
 }
